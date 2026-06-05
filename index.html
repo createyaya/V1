@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me & The Radiant Firmament</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* 品牌Logo区域 */
+        .brand-header {
+            text-align: center;
+            padding: 20px 0 15px;
+        }
+
+        .brand-name {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 28px;
+            font-style: italic;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        /* 主导航栏 */
+        .main-nav {
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 0;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .main-nav li {
+            cursor: pointer;
+            font-size: 15px;
+            color: #000;
+            transition: opacity 0.2s;
+            position: relative;
+        }
+
+        .main-nav li:hover {
+            opacity: 0.6;
+        }
+
+        .main-nav li.active {
+            font-weight: 500;
+        }
+
+        .main-nav li.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #000;
+        }
+
+        /* 大标题区域 */
+        .hero-title {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero-title h1 {
+            font-size: 56px;
+            font-weight: normal;
+            letter-spacing: 4px;
+        }
+
+        /* 子分类导航 */
+        .sub-nav {
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+        }
+
+        .sub-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .sub-nav li {
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .sub-nav li:hover {
+            color: #000;
+        }
+
+        .sub-nav li.active {
+            color: #000;
+            font-weight: 500;
+        }
+
+        .sub-nav li.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #000;
+        }
+
+        /* 内容区域 */
+        .content-area {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .category-image {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* 隐藏未激活的内容 */
+        .category-content {
+            display: none;
+        }
+
+        .category-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 品牌Logo -->
+    <header class="brand-header">
+        <h1 class="brand-name">Me & The Radiant Firmament</h1>
+    </header>
+
+    <!-- 主导航栏 -->
+    <nav class="main-nav">
+        <ul>
+            <li data-category="makeup" class="active">妆容</li>
+            <li data-category="hairstyle">发型</li>
+            <li data-category="color">颜色</li>
+            <li data-category="fabric">面料</li>
+            <li data-category="silhouette">版型</li>
+        </ul>
+    </nav>
+
+    <!-- 妆容内容 -->
+    <div id="makeup" class="category-content active">
+        <div class="hero-title">
+            <h1>妆容</h1>
+        </div>
+        <nav class="sub-nav">
+            <ul>
+                <li data-image="妆容结构.png" class="active">妆容结构</li>
+                <li data-image="妆容产品.png">妆容产品</li>
+                <li data-image="妆容进阶.png">妆容进阶</li>
+            </ul>
+        </nav>
+        <div class="content-area">
+            <img id="makeup-image" src="妆容结构.png" alt="妆容" class="category-image">
+        </div>
+    </div>
+
+    <!-- 发型内容 -->
+    <div id="hairstyle" class="category-content">
+        <div class="hero-title">
+            <h1>发型</h1>
+        </div>
+        <nav class="sub-nav">
+            <ul>
+                <li data-image="发型结构.png" class="active">发型结构</li>
+                <li data-image="发型产品.png">发型产品</li>
+                <li data-image="发型进阶.png">发型进阶</li>
+            </ul>
+        </nav>
+        <div class="content-area">
+            <img id="hairstyle-image" src="发型结构.png" alt="发型" class="category-image">
+        </div>
+    </div>
+
+    <!-- 颜色内容 -->
+    <div id="color" class="category-content">
+        <div class="hero-title">
+            <h1>颜色</h1>
+        </div>
+        <nav class="sub-nav">
+            <ul>
+                <li data-image="四季颜色.png" class="active">四季颜色</li>
+                <li data-image="颜色进阶.png">颜色进阶</li>
+            </ul>
+        </nav>
+        <div class="content-area">
+            <img id="color-image" src="四季颜色.png" alt="颜色" class="category-image">
+        </div>
+    </div>
+
+    <!-- 面料内容 -->
+    <div id="fabric" class="category-content">
+        <div class="hero-title">
+            <h1>面料</h1>
+        </div>
+        <nav class="sub-nav">
+            <ul>
+                <li data-image="面料软硬.png" class="active">面料软硬</li>
+                <li data-image="选择面料.png">选择面料</li>
+                <li data-image="面料进阶.png">面料进阶</li>
+            </ul>
+        </nav>
+        <div class="content-area">
+            <img id="fabric-image" src="面料软硬.png" alt="面料" class="category-image">
+        </div>
+    </div>
+
+    <!-- 版型内容 -->
+    <div id="silhouette" class="category-content">
+        <div class="hero-title">
+            <h1>版型</h1>
+        </div>
+        <nav class="sub-nav">
+            <ul>
+                <li data-image="服装轮廓.png" class="active">服装轮廓</li>
+                <li data-image="自身体型.png">自身体型</li>
+                <li data-image="版型进阶.png">版型进阶</li>
+            </ul>
+        </nav>
+        <div class="content-area">
+            <img id="silhouette-image" src="服装轮廓.png" alt="版型" class="category-image">
+        </div>
+    </div>
+
+    <script>
+        // 主导航切换功能
+        document.querySelectorAll('.main-nav li').forEach(navItem => {
+            navItem.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                // 更新主导航栏激活状态
+                document.querySelectorAll('.main-nav li').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+
+                // 切换内容区域
+                document.querySelectorAll('.category-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(category).classList.add('active');
+            });
+        });
+
+        // 子导航切换图片功能
+        document.querySelectorAll('.sub-nav li').forEach(subItem => {
+            subItem.addEventListener('click', function() {
+                const imageSrc = this.getAttribute('data-image');
+                const parentContent = this.closest('.category-content');
+                const imageId = parentContent.id + '-image';
+
+                // 更新子导航激活状态
+                this.parentElement.querySelectorAll('li').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+
+                // 切换图片
+                document.getElementById(imageId).src = imageSrc;
+            });
+        });
+    </script>
+</body>
+</html>
