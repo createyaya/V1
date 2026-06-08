@@ -146,6 +146,27 @@
         .category-content.active {
             display: block;
         }
+
+        /* 确保面料图片在面料进阶激活时隐藏 */
+        #fabric .category-image {
+            transition: display 0.3s ease;
+        }
+
+        .category-content-advanced {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .category-content-advanced.active {
+            display: block;
+        }
+
+        .content-area-advanced {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -224,11 +245,151 @@
             <ul>
                 <li data-image="面料软硬.png" class="active">面料软硬</li>
                 <li data-image="选择面料.png">选择面料</li>
-                <li data-image="面料进阶.png">面料进阶</li>
+                <li data-image="fabric-advanced" class="fabric-advanced-nav">面料进阶</li>
             </ul>
         </nav>
         <div class="content-area">
             <img id="fabric-image" src="面料软硬.png" alt="面料" class="category-image">
+        </div>
+    </div>
+
+    <!-- 面料进阶内容 -->
+    <div id="fabric-advanced" class="category-content">
+        <div class="hero-title">
+            <h1>面料进阶</h1>
+        </div>
+        <div class="content-area">
+            <div style="margin: 20px 0;">
+                <div style="margin: 10px 0; padding: 10px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 4px; display: flex; gap: 10px; justify-content: center;">
+                    <button onclick="formatSelection('bold')" style="padding: 5px 10px; cursor: pointer; border: 1px solid #ccc; background: white; border-radius: 3px;">粗体</button>
+                    <button onclick="formatSelection('removeFormat')" style="padding: 5px 10px; cursor: pointer; border: 1px solid #ccc; background: white; border-radius: 3px;">清除格式</button>
+                </div>
+                <table style="border-collapse: collapse; width: 100%; margin: 20px auto; border: 1px solid #ddd;">
+                    <thead>
+                        <tr style="background: #f2f2f2;">
+                            <th style="padding: 12px; text-align: center; font-weight: bold; border: 1px solid #ddd;">序号</th>
+                            <th style="padding: 12px; text-align: center; font-weight: bold; border: 1px solid #ddd;">内搭</th>
+                            <th style="padding: 12px; text-align: center; font-weight: bold; border: 1px solid #ddd;">外套</th>
+                            <th style="padding: 12px; text-align: center; font-weight: bold; border: 1px solid #ddd;">下装</th>
+                            <th style="padding: 12px; text-align: center; font-weight: bold; border: 1px solid #ddd;">鞋子</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">1</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">2</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">3</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">4</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">5</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">6</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>软莱赛尔 50 女人温柔</b></div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>硬棉 100 厚</b></div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>软莱赛尔75+锦纶 无褶贴身纱裙后开叉</b></div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>硬长筒皮靴 缎面软鞋</b></div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">7</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">8</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">9</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">10</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">11</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">12</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">13</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">14</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">15</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">软</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">16</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">硬</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -241,11 +402,150 @@
             <ul>
                 <li data-image="服装轮廓.png" class="active">服装轮廓</li>
                 <li data-image="自身体型.png">自身体型</li>
-                <li data-image="版型进阶.png">版型进阶</li>
+                <li data-image="silhouette-advanced" class="silhouette-advanced-nav">版型进阶</li>
             </ul>
         </nav>
         <div class="content-area">
             <img id="silhouette-image" src="服装轮廓.png" alt="版型" class="category-image">
+        </div>
+
+    <!-- 版型进阶内容 -->
+    <div id="silhouette-advanced" class="category-content">
+        <div class="hero-title">
+            <h1>版型进阶</h1>
+        </div>
+        <div class="content-area">
+            <div style="margin: 20px 0;">
+                <div style="margin: 10px 0; padding: 10px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 4px; display: flex; gap: 10px; justify-content: center;">
+                    <button onclick="formatSelection('bold')" style="padding: 5px 10px; cursor: pointer; border: 1px solid #ccc; background: white; border-radius: 3px;">粗体</button>
+                    <button onclick="formatSelection('removeFormat')" style="padding: 5px 10px; cursor: pointer; border: 1px solid #ccc; background: white; border-radius: 3px;">清除格式</button>
+                </div>
+                <table style="border-collapse: collapse; width: 100%; margin: 20px auto; border: 1px solid #ddd;">
+                    <thead>
+                        <tr style="background: #f2f2f2;">
+                            <th style="padding: 12px; text-align: center; font-weight: bold; border: 1px solid #ddd;">序号</th>
+                            <th style="padding: 12px; text-align: center; font-weight: bold; border: 1px solid #ddd;">内搭</th>
+                            <th style="padding: 12px; text-align: center; font-weight: bold; border: 1px solid #ddd;">外套</th>
+                            <th style="padding: 12px; text-align: center; font-weight: bold; border: 1px solid #ddd;">下装</th>
+                            <th style="padding: 12px; text-align: center; font-weight: bold; border: 1px solid #ddd;">鞋子</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">1</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">2</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">3</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">4</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">5</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">6</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">7</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">8</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">9</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">10</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>短</b></div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>长</b></div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>长</b></div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>短</b></div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">11</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">12</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">13</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>短</b></div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>短</b></div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>长</b></div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;"><b>长</b></div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">14</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">15</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">长</div></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none; text-align: center;">16</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                            <td style="padding: 8px; border: 1px solid #ddd;"><div contenteditable="true" style="min-height: 30px; cursor: text; outline: none;">短</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -266,15 +566,46 @@
                     content.classList.remove('active');
                 });
                 document.getElementById(category).classList.add('active');
+
+                // 如果切换到面料，默认激活第一个子导航（面料软硬）
+                if (category === 'fabric') {
+                    const firstSubNav = document.querySelector('#fabric .sub-nav li:first-child');
+                    if (firstSubNav) {
+                        firstSubNav.click();
+                    }
+                }
+
+                // 如果切换到版型，默认激活第一个子导航（服装轮廓）
+                if (category === 'silhouette') {
+                    const firstSubNav = document.querySelector('#silhouette .sub-nav li:first-child');
+                    if (firstSubNav) {
+                        firstSubNav.click();
+                    }
+                }
             });
         });
 
-        // 子导航切换图片功能
+        // 为进阶导航添加特殊样式
+        const advancedStyle = document.createElement('style');
+        advancedStyle.textContent = `
+            .fabric-advanced-nav.active::after,
+            .silhouette-advanced-nav.active::after {
+                content: '';
+                position: absolute;
+                bottom: -12px;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background-color: #000;
+            }
+        `;
+        document.head.appendChild(advancedStyle);
+
+        // 子导航切换功能
         document.querySelectorAll('.sub-nav li').forEach(subItem => {
             subItem.addEventListener('click', function() {
-                const imageSrc = this.getAttribute('data-image');
+                const imageData = this.getAttribute('data-image');
                 const parentContent = this.closest('.category-content');
-                const imageId = parentContent.id + '-image';
 
                 // 更新子导航激活状态
                 this.parentElement.querySelectorAll('li').forEach(item => {
@@ -282,8 +613,57 @@
                 });
                 this.classList.add('active');
 
-                // 切换图片
-                document.getElementById(imageId).src = imageSrc;
+                // 如果是面料进阶
+                if (imageData === 'fabric-advanced') {
+                    // 隐藏当前分类的图片
+                    const img = parentContent.querySelector('.category-image');
+                    if (img) img.style.display = 'none';
+
+                    // 显示面料进阶内容
+                    document.getElementById('fabric-advanced').classList.add('active');
+                }
+                // 如果是版型进阶
+                else if (imageData === 'silhouette-advanced') {
+                    // 隐藏当前分类的图片
+                    const img = parentContent.querySelector('.category-image');
+                    if (img) img.style.display = 'none';
+
+                    // 显示版型进阶内容
+                    document.getElementById('silhouette-advanced').classList.add('active');
+                }
+                // 正常处理图片切换
+                else {
+                    const img = parentContent.querySelector('.category-image');
+                    if (img) {
+                        img.style.display = 'block';
+                        img.src = imageData;
+                    }
+
+                    // 隐藏进阶内容
+                    document.getElementById('fabric-advanced').classList.remove('active');
+                    document.getElementById('silhouette-advanced').classList.remove('active');
+                }
+            });
+        });
+
+        // 添加formatSelection函数
+        function formatSelection(command) {
+            document.execCommand(command, false, null);
+        }
+
+        // 为表格单元格添加粘贴事件监听
+        document.addEventListener('DOMContentLoaded', function() {
+            // 使用事件委托处理动态添加的单元格
+            document.addEventListener('click', function(e) {
+                if (e.target.contentEditable === 'true') {
+                    setTimeout(function() {
+                        e.target.addEventListener('paste', function(pasteEvent) {
+                            pasteEvent.preventDefault();
+                            const text = pasteEvent.clipboardData.getData('text/plain');
+                            document.execCommand('insertText', false, text);
+                        });
+                    }, 100);
+                }
             });
         });
     </script>
